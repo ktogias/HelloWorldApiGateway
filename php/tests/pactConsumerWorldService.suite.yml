@@ -1,0 +1,22 @@
+# Codeception Test Suite Configuration
+#
+# Suite for unit or integration tests.
+
+actor: UnitTester
+modules:
+    enabled:
+        - Asserts
+        - \Helper\Unit
+    step_decorators: ~  
+extensions:
+    enabled:
+        - CodeceptionPactPhp\Extension\Env:
+            PACT_CONSUMER_NAME: HelloWorldApiGateway
+            PACT_PROVIDER_VERSION: 0.1.0
+            PACT_CONSUMER_VERSION: 0.1.0
+            PACT_CONSUMER_TAG: gateway
+            PACT_PROVIDER_NAME: WorldService
+            PACT_PROVIDER_BASE_URL: http://localhost
+            PACT_BROKER_URI: https://ktogias.pactflow.io
+            PACT_BROKER_BEARER_TOKEN: <token>
+        - CodeceptionPactPhp\Extension\Pact
