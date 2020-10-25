@@ -30,6 +30,7 @@ if($_SERVER['REQUEST_URI'] == '/message'){
     $world = json_decode($responses['worldService']->getBody(), true);
 
     header('Content-Type: application/json; charset=utf-8');
+    header('Access-Control-Allow-Origin: *');
     echo json_encode(['message' => $hello['message'].' '.$world['message']]);
     return;
 }

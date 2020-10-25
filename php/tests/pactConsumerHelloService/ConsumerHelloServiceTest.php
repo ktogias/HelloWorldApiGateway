@@ -33,6 +33,7 @@ final class ConsumerHelloServiceTest extends TestCase
         $response
             ->setStatus(200)
             ->addHeader('Content-Type', 'application/json')
+            ->addHeader('Access-Control-Allow-Origin', '*')
             ->setBody([
                 'message' => $matcher->term('Hello', '(Hello)')
             ]);
