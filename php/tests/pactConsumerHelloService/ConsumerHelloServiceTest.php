@@ -44,6 +44,7 @@ final class ConsumerHelloServiceTest extends TestCase
             ->with($request)
             ->willRespondWith($response);
 
+        $_SERVER['REQUEST_URI'] = '/message';
         require 'src/gateway.php';
 
         $builder->verify(); 

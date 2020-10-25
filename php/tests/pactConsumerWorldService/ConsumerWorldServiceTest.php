@@ -40,10 +40,11 @@ final class ConsumerWorldServiceTest extends TestCase
         $config  = new MockServerEnvConfig();
         $builder = new InteractionBuilder($config);
         $builder
-            ->uponReceiving('A get request to /')
+            ->uponReceiving('A get request to /message')
             ->with($request)
             ->willRespondWith($response);
 
+        $_SERVER['REQUEST_URI'] = '/message';
         require 'src/gateway.php';
 
         $builder->verify(); 
